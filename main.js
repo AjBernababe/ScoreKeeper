@@ -25,20 +25,31 @@ changeScore.player1.addEventListener('click', () => {
     if (_player1Score < _maxScore) {
         _player1Score++
         currentScore.player1.textContent = _player1Score
+
+        _player1Score == _maxScore && disableButtons();
     }
 })
 changeScore.player2.addEventListener('click', () => {
     if (_player2Score < _maxScore) {
         _player2Score++
         currentScore.player2.textContent = _player2Score
+
+        _player2Score == _maxScore && disableButtons();
     }
 })
 
 changeScore.reset.addEventListener('click', defaults)
+
+function disableButtons() {
+    changeScore.player1.disabled = true;
+    changeScore.player2.disabled = true;
+}
 
 function defaults() {
     _player1Score = 0
     currentScore.player1.textContent = 0
     _player2Score = 0
     currentScore.player2.textContent = 0
+    changeScore.player1.disabled = !true;
+    changeScore.player2.disabled = !true;
 }
